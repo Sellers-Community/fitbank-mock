@@ -1,0 +1,35 @@
+spring:
+  environment:
+    name: dev
+  application:
+    name: fitbank-mock
+  profiles:
+    active: dev
+  devtools:
+    add-properties: false
+  mvc:
+    converters:
+      preferred-json-mapper: gson
+
+server:
+  port: 8031
+
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,liveness,info,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+logging:
+  level:
+    com.br: debug
+
