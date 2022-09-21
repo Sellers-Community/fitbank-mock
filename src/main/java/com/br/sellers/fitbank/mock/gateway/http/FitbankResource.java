@@ -35,7 +35,12 @@ public class FitbankResource {
         String requestBody = ResourceHelper.requestBody(request);
         log.debug(requestBody);
 
-        BasicResponseModel response = IdenytifyRequestFactory.getInstance(requestBody).execute(requestBody, simulate);
+        ServiceBase instance = IdenytifyRequestFactory.getInstance(requestBody);
+        if (Objects.isNull(instance)) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        BasicResponseModel response = instance.execute(requestBody, simulate);
         return ResponseEntity.ok(response);
     }
 }
