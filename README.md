@@ -19,6 +19,7 @@ Todos. Basta pedir para ser adicionado na organização (https://github.com/Sell
 
 ## Leitura obrigatória para todos os colaboradores
 * A versão do Java é 1.8;
+  * Está sendo usado o Java 1.8 por uma compatibilidade com a Sellers. Mas estámos planejamento uma migração para o Java 11 ou um mais novo.
 * Não remover comentários do código. Todo o projeto está sendo preparado para estudantes iniciantes em programação e Java.
 
 ## Serviços atendidos hoje

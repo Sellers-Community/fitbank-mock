@@ -1,5 +1,8 @@
 # Pull Request Template
 
+## Foi testado no Java 1.8 (Leia a Readme para entender)?
+- [ ] Sim
+ 
 ## O que era pra ser feito?
 
 Inclua um resumo da mudança e qual problema foi corrigido. Inclua também a motivação e o contexto relevantes.
