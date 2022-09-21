@@ -17,8 +17,8 @@ import java.util.Objects;
  * Único endpoint do servidor.
  * A definição de qual serviço executar fica dentro do json recebido por request.
  */
-@Log4j2
-@RestController
+@Log4j2 // Anotação do Lombok
+@RestController // Anotação do Spring Boot
 public class FitbankResource {
 
     /**
