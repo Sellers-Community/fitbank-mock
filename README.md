@@ -17,6 +17,10 @@ dos projetos.
 ## Quem pode colaborar?
 Todos. Basta pedir para ser adicionado na organização (https://github.com/Sellers-Community) e seguir as issues abertas.
 
+## Leitura obrigatória para todos os colaboradores
+* A versão do Java é 1.8;
+* Não remover comentários do código. Todo o projeto está sendo preparado para estudantes iniciantes em programação e Java.
+
 ## Serviços atendidos hoje
 ```
     public static final String CREATE_ACCOUNT = "CreateAccount";
