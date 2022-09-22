@@ -8,6 +8,8 @@ import com.br.sellers.fitbank.mock.gateway.model.response.paymentslip.GetPayment
 import com.br.sellers.fitbank.mock.service.ServiceBaseImpl;
 import com.google.gson.Gson;
 
+import java.util.Map;
+
 public class GetPaymentSlipByIdService extends ServiceBaseImpl {
 
     @Override
@@ -27,4 +29,9 @@ public class GetPaymentSlipByIdService extends ServiceBaseImpl {
         modelResponde.setBoleto(new GetPaymentSlipDetailsItensResponseModel());
     }
 
+    @Override
+    protected void validadeFields(BasicRequestModel request, Map<String, Object> errors) {
+        GetPaymentSlipDetailsRequestModel model = (GetPaymentSlipDetailsRequestModel) request;
+        validadeField(model.getDocumentNumber(), "DocumentNumber", "DocumentNumber é obrigatório", errors);
+    }
 }
