@@ -13,6 +13,8 @@ import java.util.Map;
 
 class GetPaymentSlipByIdServiceTest {
 
+    private final ServiceBase getPaymentSlipByIdService = new GetPaymentSlipByIdService();
+
     @ParameterizedTest
     @NullAndEmptySource
     void shouldGetNullWhenPassingInvalidDocumentNumber(final String documentNumber) throws JsonProcessingException {
@@ -25,9 +27,7 @@ class GetPaymentSlipByIdServiceTest {
         request.setDocumentNumber(documentNumber);
 
         final String requestBody = new Gson().toJson(request);
-
-        final ServiceBase service = new GetPaymentSlipByIdService();
-        final BasicResponseModel response = service.execute(requestBody, "");
+        final BasicResponseModel response = getPaymentSlipByIdService.execute(requestBody, "");
 
         Assertions.assertNotNull(response);
         Assertions.assertNotNull(response.getValidation());
