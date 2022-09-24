@@ -15,7 +15,7 @@ class GetPaymentSlipByIdServiceTest {
 
     @ParameterizedTest
     @NullAndEmptySource
-    void executarValidacaoVazio(final String documentNumber) throws JsonProcessingException {
+    void shouldGetNullWhenPassingInvalidDocumentNumber(final String documentNumber) throws JsonProcessingException {
         final GetPaymentSlipDetailsRequestModel request = new GetPaymentSlipDetailsRequestModel();
         request.setMethod("GetBoletoById");
         request.setPartnerId(12345L);
