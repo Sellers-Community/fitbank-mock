@@ -52,6 +52,15 @@ class CreateInternalTransferSimpleServiceTest {
         createInternalTransferSimpleServiceExecuteAssertions(request, "RateValue");
     }
 
+    @ParameterizedTest
+    @NullAndEmptySource
+    void shouldGetNullWhenPassingInvalidTransferDate(final String transferDate) throws JsonProcessingException {
+        final InternalTransferSimpleRequestModel request = request();
+        request.setTransferDate(transferDate);
+
+        createInternalTransferSimpleServiceExecuteAssertions(request, "TransferDate");
+    }
+
     private void createInternalTransferSimpleServiceExecuteAssertions(final InternalTransferSimpleRequestModel request,
                                                                       final String field) throws JsonProcessingException {
         final String requestBody = new Gson().toJson(request);
