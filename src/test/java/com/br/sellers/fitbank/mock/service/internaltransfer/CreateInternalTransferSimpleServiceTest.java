@@ -26,6 +26,15 @@ class CreateInternalTransferSimpleServiceTest {
         createInternalTransferSimpleServiceExecuteAssertions(request, "FromTaxNumber");
     }
 
+    @ParameterizedTest
+    @NullAndEmptySource
+    void shouldGetNullWhenPassingInvalidToTaxNumber(final String toTaxNumber) throws JsonProcessingException {
+        final InternalTransferSimpleRequestModel request = request();
+        request.setToTaxNumber(toTaxNumber);
+
+        createInternalTransferSimpleServiceExecuteAssertions(request, "ToTaxNumber");
+    }
+
     private void createInternalTransferSimpleServiceExecuteAssertions(final InternalTransferSimpleRequestModel request,
                                                                       final String field) throws JsonProcessingException {
         final String requestBody = new Gson().toJson(request);
@@ -45,6 +54,7 @@ class CreateInternalTransferSimpleServiceTest {
         request.setMethod("GetBoletoById");
         request.setPartnerId(12345L);
         request.setBusinessUnitId(1234567890L);
+
         request.setFromTaxNumber("10000");
         request.setToTaxNumber("200000");
         request.setValue(BigDecimal.valueOf(1000L));
