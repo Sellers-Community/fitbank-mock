@@ -6,6 +6,7 @@ import com.br.sellers.fitbank.mock.service.ServiceBase;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 
@@ -33,6 +34,14 @@ class CreateInternalTransferSimpleServiceTest {
         request.setToTaxNumber(toTaxNumber);
 
         createInternalTransferSimpleServiceExecuteAssertions(request, "ToTaxNumber");
+    }
+
+    @Test
+    void shouldGetNullWhenPassingInvalidValue() throws JsonProcessingException {
+        final InternalTransferSimpleRequestModel request = request();
+        request.setValue(null);
+
+        createInternalTransferSimpleServiceExecuteAssertions(request, "Value");
     }
 
     private void createInternalTransferSimpleServiceExecuteAssertions(final InternalTransferSimpleRequestModel request,
