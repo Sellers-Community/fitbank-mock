@@ -20,14 +20,14 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.Stream;
 
-class IdenytifyRequestFactoryTest {
+class IdentifyRequestFactoryTest {
 
 
     @ParameterizedTest
     @MethodSource("dataSetParameters")
     void shouldGetConcreteInstanceAsPerMethodPassedInJson(final String method, final Class<?> clazz) throws JsonProcessingException {
         final String json = String.format( "{ \"Method\": \"%s\" }", method);
-        final ServiceBase instance = IdenytifyRequestFactory.getInstance(json);
+        final ServiceBase instance = IdentifyRequestFactory.getInstance(json);
 
         Assertions.assertNotNull(instance);
         Assertions.assertEquals(clazz, instance.getClass());
@@ -38,22 +38,22 @@ class IdenytifyRequestFactoryTest {
     @ValueSource(strings = "{}")
     void shouldGetNullWhenPassingInvalidJson(final String method) throws JsonProcessingException {
         final String json = String.format( "{ \"Method\": \"%s\" }", method);
-        final ServiceBase instance = IdenytifyRequestFactory.getInstance(json);
+        final ServiceBase instance = IdentifyRequestFactory.getInstance(json);
 
         Assertions.assertNull(instance);
     }
 
     private static Stream<Arguments> dataSetParameters() {
         return Stream.of(
-            Arguments.of(IdenytifyRequestFactory.CREATE_ACCOUNT, CreateAccountService.class),
-            Arguments.of(IdenytifyRequestFactory.GET_ACCOUNT_ENTRY, GetAccountEntryService.class),
-            Arguments.of(IdenytifyRequestFactory.GENERATE_PAYMENT_SLIP, CreatePaymentSlipService.class),
-            Arguments.of(IdenytifyRequestFactory.GET_PAYMENT_SLIP_ID, GetPaymentSlipByIdService.class),
-            Arguments.of(IdenytifyRequestFactory.INTERNAL_TRANSFER_SIMPLE, CreateInternalTransferSimpleService.class),
-            Arguments.of(IdenytifyRequestFactory.INTERNAL_TRANSFER_MULTIPLE, CreateInternalTransferMultipleService.class),
-            Arguments.of(IdenytifyRequestFactory.MONEY_TRANSFER, CreateMoneyTransferService.class),
-            Arguments.of(IdenytifyRequestFactory.GET_MONEY_TRANSFER, GetMoneyTransferService.class),
-            Arguments.of(IdenytifyRequestFactory.REQUEST_CARD, RequestCardService.class)
+            Arguments.of(IdentifyRequestFactory.CREATE_ACCOUNT, CreateAccountService.class),
+            Arguments.of(IdentifyRequestFactory.GET_ACCOUNT_ENTRY, GetAccountEntryService.class),
+            Arguments.of(IdentifyRequestFactory.GENERATE_PAYMENT_SLIP, CreatePaymentSlipService.class),
+            Arguments.of(IdentifyRequestFactory.GET_PAYMENT_SLIP_ID, GetPaymentSlipByIdService.class),
+            Arguments.of(IdentifyRequestFactory.INTERNAL_TRANSFER_SIMPLE, CreateInternalTransferSimpleService.class),
+            Arguments.of(IdentifyRequestFactory.INTERNAL_TRANSFER_MULTIPLE, CreateInternalTransferMultipleService.class),
+            Arguments.of(IdentifyRequestFactory.MONEY_TRANSFER, CreateMoneyTransferService.class),
+            Arguments.of(IdentifyRequestFactory.GET_MONEY_TRANSFER, GetMoneyTransferService.class),
+            Arguments.of(IdentifyRequestFactory.REQUEST_CARD, RequestCardService.class)
         );
     }
 }

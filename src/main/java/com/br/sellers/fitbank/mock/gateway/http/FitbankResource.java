@@ -1,6 +1,6 @@
 package com.br.sellers.fitbank.mock.gateway.http;
 
-import com.br.sellers.fitbank.mock.factory.IdenytifyRequestFactory;
+import com.br.sellers.fitbank.mock.factory.IdentifyRequestFactory;
 import com.br.sellers.fitbank.mock.gateway.model.response.BasicResponseModel;
 import com.br.sellers.fitbank.mock.service.ServiceBase;
 import lombok.extern.log4j.Log4j2;
@@ -35,7 +35,7 @@ public class FitbankResource {
         String requestBody = ResourceHelper.requestBody(request);
         log.debug(requestBody);
 
-        ServiceBase instance = IdenytifyRequestFactory.getInstance(requestBody);
+        ServiceBase instance = IdentifyRequestFactory.getInstance(requestBody);
         if (Objects.isNull(instance)) {
             return ResponseEntity.badRequest().build();
         }

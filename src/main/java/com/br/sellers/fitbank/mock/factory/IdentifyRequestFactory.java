@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j2;
  * Factory super importante que vai identificar qual é o serviço que deve ser executado.
  */
 @Log4j2
-public class IdenytifyRequestFactory {
+public class IdentifyRequestFactory {
 
     public static final String CREATE_ACCOUNT = "CreateAccount";
     public static final String GET_ACCOUNT_ENTRY = "GetAccountEntry";
@@ -31,7 +31,7 @@ public class IdenytifyRequestFactory {
     public static final String GET_MONEY_TRANSFER = "GetMoneyTransferOutById";
     public static final String REQUEST_CARD = "RequestCard";
 
-    private IdenytifyRequestFactory() {
+    private IdentifyRequestFactory() {
     }
 
     public static ServiceBase getInstance(String json) throws JsonProcessingException {
