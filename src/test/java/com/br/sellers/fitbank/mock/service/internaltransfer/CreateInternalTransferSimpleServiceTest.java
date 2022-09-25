@@ -44,6 +44,14 @@ class CreateInternalTransferSimpleServiceTest {
         createInternalTransferSimpleServiceExecuteAssertions(request, "Value");
     }
 
+    @Test
+    void shouldGetNullWhenPassingInvalidRateValue() throws JsonProcessingException {
+        final InternalTransferSimpleRequestModel request = request();
+        request.setRateValue(null);
+
+        createInternalTransferSimpleServiceExecuteAssertions(request, "RateValue");
+    }
+
     private void createInternalTransferSimpleServiceExecuteAssertions(final InternalTransferSimpleRequestModel request,
                                                                       final String field) throws JsonProcessingException {
         final String requestBody = new Gson().toJson(request);
