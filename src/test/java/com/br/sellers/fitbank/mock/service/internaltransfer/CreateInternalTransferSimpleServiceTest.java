@@ -36,22 +36,6 @@ class CreateInternalTransferSimpleServiceTest {
         createInternalTransferSimpleServiceExecuteAssertions(request, "ToTaxNumber");
     }
 
-    @Test
-    void shouldGetNullWhenPassingInvalidValue() throws JsonProcessingException {
-        final InternalTransferSimpleRequestModel request = request();
-        request.setValue(null);
-
-        createInternalTransferSimpleServiceExecuteAssertions(request, "Value");
-    }
-
-    @Test
-    void shouldGetNullWhenPassingInvalidRateValue() throws JsonProcessingException {
-        final InternalTransferSimpleRequestModel request = request();
-        request.setRateValue(null);
-
-        createInternalTransferSimpleServiceExecuteAssertions(request, "RateValue");
-    }
-
     @ParameterizedTest
     @NullAndEmptySource
     void shouldGetNullWhenPassingInvalidTransferDate(final String transferDate) throws JsonProcessingException {
@@ -68,6 +52,31 @@ class CreateInternalTransferSimpleServiceTest {
         request.setIdentifier(identifier);
 
         createInternalTransferSimpleServiceExecuteAssertions(request, "Identifier");
+    }
+
+    @ParameterizedTest
+    @NullAndEmptySource
+    void shouldGetNullWhenPassingInvalidDescription(final String description) throws JsonProcessingException {
+        final InternalTransferSimpleRequestModel request = request();
+        request.setDescription(description);
+
+        createInternalTransferSimpleServiceExecuteAssertions(request, "Description");
+    }
+
+    @Test
+    void shouldGetNullWhenPassingInvalidValue() throws JsonProcessingException {
+        final InternalTransferSimpleRequestModel request = request();
+        request.setValue(null);
+
+        createInternalTransferSimpleServiceExecuteAssertions(request, "Value");
+    }
+
+    @Test
+    void shouldGetNullWhenPassingInvalidRateValue() throws JsonProcessingException {
+        final InternalTransferSimpleRequestModel request = request();
+        request.setRateValue(null);
+
+        createInternalTransferSimpleServiceExecuteAssertions(request, "RateValue");
     }
 
     private void createInternalTransferSimpleServiceExecuteAssertions(final InternalTransferSimpleRequestModel request,
