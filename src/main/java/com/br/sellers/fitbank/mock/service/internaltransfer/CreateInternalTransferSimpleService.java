@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class CreateInternalTransferSimpleService extends ServiceBaseImpl {
@@ -40,4 +41,15 @@ public class CreateInternalTransferSimpleService extends ServiceBaseImpl {
         modelResponde.setInternalTransfers(new Gson().toJson(list));
     }
 
+    @Override
+    protected void validadeFields(BasicRequestModel request, Map<String, Object> errors) {
+        InternalTransferSimpleRequestModel model = (InternalTransferSimpleRequestModel) request;
+        validadeField(model.getValue(), "Value", "Value é obrigatório", errors);
+        validadeField(model.getRateValue(), "RateValue", "RateValue é obrigatório", errors);
+        validadeField(model.getIdentifier(), "Identifier", "Identifier é obrigatório", errors);
+        validadeField(model.getToTaxNumber(), "ToTaxNumber", "ToTaxNumber é obrigatório", errors);
+        validadeField(model.getDescription(), "Description", "Description é obrigatório", errors);
+        validadeField(model.getTransferDate(), "TransferDate", "TransferDate é obrigatório", errors);
+        validadeField(model.getFromTaxNumber(), "FromTaxNumber", "FromTaxNumber é obrigatório", errors);
+    }
 }
