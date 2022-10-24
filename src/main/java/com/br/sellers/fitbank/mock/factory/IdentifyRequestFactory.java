@@ -9,6 +9,7 @@ import com.br.sellers.fitbank.mock.service.internaltransfer.CreateInternalTransf
 import com.br.sellers.fitbank.mock.service.internaltransfer.CreateInternalTransferSimpleService;
 import com.br.sellers.fitbank.mock.service.moneytransfer.CreateMoneyTransferService;
 import com.br.sellers.fitbank.mock.service.moneytransfer.GetMoneyTransferService;
+import com.br.sellers.fitbank.mock.service.paymentslip.CancelPaymentSlipService;
 import com.br.sellers.fitbank.mock.service.paymentslip.CreatePaymentSlipService;
 import com.br.sellers.fitbank.mock.service.paymentslip.GetPaymentSlipByIdService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -30,6 +31,9 @@ public class IdentifyRequestFactory {
     public static final String MONEY_TRANSFER = "MoneyTransfer";
     public static final String GET_MONEY_TRANSFER = "GetMoneyTransferOutById";
     public static final String REQUEST_CARD = "RequestCard";
+
+    public static final String CANCEL_BOLETO = "CancelBoleto";
+
 
     private IdentifyRequestFactory() {
     }
@@ -62,6 +66,9 @@ public class IdentifyRequestFactory {
             return new GetMoneyTransferService();
         }else if (REQUEST_CARD.equals(basic.getMethod())) {
             return new RequestCardService();
+        } else if(CANCEL_BOLETO.equals(basic.getMethod())) {
+            return new CancelPaymentSlipService();
+
         }
 
         log.debug("O serviço " + basic.getMethod() + " não foi implementado.");
