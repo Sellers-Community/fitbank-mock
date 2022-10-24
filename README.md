@@ -32,6 +32,7 @@ public static final String INTERNAL_TRANSFER_MULTIPLE = "MultipleInternalTransfe
 public static final String MONEY_TRANSFER = "MoneyTransfer";
 public static final String GET_MONEY_TRANSFER = "GetMoneyTransferOutById";
 public static final String REQUEST_CARD = "RequestCard";
+public static final String CANCEL_BOLETO = "CancelBoleto";
 ```
 
 ## Testar
